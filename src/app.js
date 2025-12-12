@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const alumnoRoutes = require('./routes/alumno.routes');
+const docenteRoutes = require('./routes/docente.routes')
 
 // Conectar a MongoDB
 connectDB();
@@ -19,5 +20,6 @@ app.use(express.json());
 // En Vercel, todas las rutas dentro de /api ya tienen el prefijo /api.
 // Por eso aquí usamos '/usuarios' y no '/api/usuarios'
 app.use('/alumnos', alumnoRoutes);
+app.use('/docentes', docenteRoutes);
 
 module.exports = app;
